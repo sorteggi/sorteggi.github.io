@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Checklist Example</title>
+  <title>Sorteggi</title>
   <style>
     .button {
       display: inline-block;
@@ -20,67 +20,58 @@
   </style>
 </head>
 <body>
-
-<h2>Checklist</h2>
-
-<!-- Unordered List (UL) for the checklist -->
+<h2>Chi e' gia' andato?</h2>
 <ul id="checklist">
-  <!-- List Item (LI) for each item in the checklist -->
-  <li><input type="checkbox" id="item1"> <label for="item1">Item 1</label></li>
-  <li><input type="checkbox" id="item2"> <label for="item2">Item 2</label></li>
-  <li><input type="checkbox" id="item3"> <label for="item3">Item 3</label></li>
-  <!-- Add more items as needed -->
+  <li><input type="checkbox" id="Lorenzo baldassarre"> <label for="Lorenzo baldassarre">Lorenzo baldassarre</label</li>
+  <li><input type="checkbox" id="Gloria chirico"> <label for="Gloria chirico">Gloria chirico</label></li>
+  <li><input type="checkbox" id="Elena ciriolo"> <label for="Elena ciriolo">Elena ciriolo</label></li>
+  <li><input type="checkbox" id="Achille de donno"> <label for="Achille de donno">Achille de donno</label></li>
+  <li><input type="checkbox" id="Carlo de iaco"> <label for="Carlo de iaco">Carlo de iaco</label></li>
+  <li><input type="checkbox" id="Cristina donno"> <label for="Cristina donno">Cristina donno</label></li>
+  <li><input type="checkbox" id="Matteo fersini"> <label for="Matteo fersini">Matteo fersini</label></li>
+  <li><input type="checkbox" id="Andrea franco"> <label for="Andrea franco">Andrea franco</label></li>
+  <li><input type="checkbox" id="Sarah gemma"> <label for="Sarah gemma">Sarah gemma</label></li>
+  <li><input type="checkbox" id="Simone greco"> <label for="Simone greco">Simone greco</label></li>
+  <li><input type="checkbox" id="Sofia greco"> <label for="Sofia greco">Sofia greco</label></li>
+  <li><input type="checkbox" id="Giulio leo"> <label for="Giulio leo">Giulio leo</label></li>
+  <li><input type="checkbox" id="Riccardo mangione"> <label for="Riccardo mangione">Riccardo mangione</label></li>
+  <li><input type="checkbox" id="Federico melcore"> <label for="Federico melcore">Federico melcore</label></li>
+  <li><input type="checkbox" id="Angelo mitruccio"> <label for="Angelo mitruccio">Angelo mitruccio</label></li>
+  <li><input type="checkbox" id="Silvia palma"> <label for="Silvia palma">Silvia palma</label></li>
+  <li><input type="checkbox" id="Marco pino"> <label for="Marco pino">Marco pino</label></li>
+  <li><input type="checkbox" id="Nicolo' Russo"> <label for="Nicolo' Russo">Nicolo' Russo</label></li>
+  <li><input type="checkbox" id="Matteo saponaro"> <label for="Matteo saponaro">Nicolo' Russo</label></li>
+  <li><input type="checkbox" id="Antonio spagnolo"> <label for="Antonio spagnolo">Nicolo' Russo</label></li>
+  <li><input type="checkbox" id="Ahmed talaa"> <label for="Ahmed talaa">Nicolo' Russo</label></li>
+  <li><input type="checkbox" id="Michele turi"> <label for="Michele turi">Nicolo' Russo</label></li>
+  <li><input type="checkbox" id="Giuseppe urso"> <label for="Giuseppe urso">Nicolo' Russo</label></li>
+  <li><input type="checkbox" id="Matilde vecchio"> <label for="Matilde vecchio">Nicolo' Russo</label></li>
 </ul>
-
-<!-- Button to eliminate checked items, shuffle, and display the list -->
-<button class="button" onclick="processChecklist()">Process Checklist</button>
-
-<!-- Container for the shuffled list -->
+<button class="button" onclick="processChecklist()">Sorteggia</button>
 <div id="shuffled-list-container"></div>
-
 <script>
   function processChecklist() {
-    // Get the <ul> element
     var checklist = document.getElementById('checklist');
-
-    // Create a new array for unchecked items
     var uncheckedItems = [];
-
-    // Iterate through each <li> in the checklist
     for (var i = 0; i < checklist.children.length; i++) {
       var listItem = checklist.children[i];
-
-      // Check if the checkbox is unchecked
       if (!listItem.querySelector('input').checked) {
         uncheckedItems.push(listItem.textContent.trim());
       }
     }
-
-    // Shuffle the array of unchecked items
     uncheckedItems.sort(function() {
       return 0.5 - Math.random();
     });
-
-    // Create a new ordered list (OL) for the shuffled items
     var shuffledList = document.createElement('ol');
-
-    // Populate the OL with LI elements based on the shuffled list
     uncheckedItems.forEach(function(itemText) {
       var li = document.createElement('li');
       li.textContent = itemText;
       shuffledList.appendChild(li);
     });
-
-    // Get the container for the shuffled list
     var shuffledListContainer = document.getElementById('shuffled-list-container');
-
-    // Clear previous content in the container
     shuffledListContainer.innerHTML = '';
-
-    // Append the shuffled list to the container
     shuffledListContainer.appendChild(shuffledList);
   }
 </script>
-
 </body>
 </html>
